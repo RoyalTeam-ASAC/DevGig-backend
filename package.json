@@ -1,0 +1,31 @@
+{
+  "name": "devgig-backend",
+  "version": "1.0.0",
+  "description": "Team Name: Royal Team Project Name: DevGig Idea: Freelance website where any developer can promote their profile/works and be able to find  and search for jobs and job offers and apply that are coming from an online API.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RoyalTeam-ASAC/DevGig-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RoyalTeam-ASAC/DevGig-backend/issues"
+  },
+  "homepage": "https://github.com/RoyalTeam-ASAC/DevGig-backend#readme",
+  "dependencies": {
+    "auth0": "^2.35.1",
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "jwk": "^0.0.2",
+    "mongoose": "^5.13.2"
+  }
+}
