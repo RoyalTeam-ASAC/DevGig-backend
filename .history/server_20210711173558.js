@@ -33,8 +33,8 @@ app.get('/findJobs', findJobs);
 app.get('/test',testController)
 // app.post('/test',testController)
 
-// app.get('/freelance',postReq)
-app.post('/freelance',postReq)
+app.get('/freelance',postReq)
+// app.post('/freelance',postReq)
 
 const client = jwksClient({
     // this url comes from your app on the auth0 dashboard 

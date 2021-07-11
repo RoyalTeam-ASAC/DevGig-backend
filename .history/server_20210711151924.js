@@ -14,9 +14,7 @@ app.use(cors());
 
 const jwt = require('jsonwebtoken');
 const jwksClient = require('jwks-rsa');
-
 const findJobs = require('./Conroller/findJobs');
-const testController=require('./Conroller/test.controller');
 const{
     postReq
 }=require('./Conroller/freelance.controller')
@@ -30,10 +28,6 @@ mongoose.connect('mongodb://localhost:27017/freelance',
 app.get('/findJobs', findJobs);
 
 //Post request
-app.get('/test',testController)
-// app.post('/test',testController)
-
-// app.get('/freelance',postReq)
 app.post('/freelance',postReq)
 
 const client = jwksClient({
