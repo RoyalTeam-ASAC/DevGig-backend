@@ -7,6 +7,7 @@ this.title=jobRequest.title
 this.job_type=jobRequest.job_type 
 this.company_name=jobRequest.company_name 
 this.publication_date=jobRequest.publication_date 
+this.url=jobRequest.url
 // this.description=jobRequest.description 
 }
 }
