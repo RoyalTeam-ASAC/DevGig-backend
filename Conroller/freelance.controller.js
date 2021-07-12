@@ -15,7 +15,7 @@ const postReq = (req,res)=>{
     console.log('req.body',req.body);
     infoModal.findOne({email:email},(error,user)=>{
         if(error){
-            res.send('use not found')
+            res.send('user not found')
         }else{
             const newData={
                 name:name,
