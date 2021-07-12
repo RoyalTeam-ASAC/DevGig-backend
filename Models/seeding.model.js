@@ -10,21 +10,21 @@ const data = new mongoose.Schema({
 
 const infoModal = mongoose.model('data',data);
 
-// const muntherSeed = ()=>{
-//     const muntherData={
-//         name:'munther',
-//         skills: 'javaScript,Css,Html,NoSQL',
-//         bio:'Full stack Web developer',
-//         phone:'000-000-000',
-//         websiteUrl:'https://github.com/muntherabdlrahman'
-//     }
-//     const munther = new infoModal({
-//         email:'munther.abdlrahman@gmail.com',
-//         data:[muntherData]
-//     })
-//     munther.save();
-//     console.log('munther data',munther);
-//     return (munther)
-// }
+const muntherSeed = ()=>{
+    const muntherData={
+        name:'munther',
+        skills: 'javaScript,Css,Html,NoSQL',
+        bio:'Full stack Web developer',
+        phone:'000-000-000',
+        websiteUrl:'https://github.com/muntherabdlrahman'
+    }
+    const munther = new infoModal({
+        email:'munther.abdlrahman@gmail.com',
+        data:[muntherData]
+    })
+    munther.save();
+    console.log('munther data',munther);
+    return (munther)
+}
 
 module.exports=infoModal;
