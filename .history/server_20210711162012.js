@@ -30,10 +30,10 @@ mongoose.connect('mongodb://localhost:27017/freelance',
 app.get('/findJobs', findJobs);
 
 //Post request
-app.get('/test',testController)
-// app.post('/test',testController)
-
-// app.get('/freelance',postReq)
+app.post('/',(req,res)=>{
+    res.send('hello')
+})
+app.post('/test',testController)
 app.post('/freelance',postReq)
 
 const client = jwksClient({
