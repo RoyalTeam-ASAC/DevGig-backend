@@ -3,6 +3,21 @@
 const jobsSchema=require ('../Models/jobs.model');
 const infoModal2= require('../Models/seedingJob.model');
 
+const getReq= (req,res) =>{
+    const email=req.query.email
+    
+    infoModal2.findOne({email:email}, (error, result)=>{
+        if (error){
+            res.send(error.message)
+        }
+        console.log(result.data)
+        res.send(result.data);
+
+     
+    });
+    
+  }
+
 const postReq2 = (req,res)=>{
     const{
     email,
@@ -29,6 +44,46 @@ const postReq2 = (req,res)=>{
     })
 }
 
+const delReq = (req, res)=> {
+ 
+    const index = Number(req.params.index);
+    // console.log(index)
+    const { email} = req.query;
+    
+    infoModal2.findOne({email: email}, (err, result) => {
+        
+        const newdelete=result.data.filter((bok,idx)=>
+        {
+          return idx !==index
+        }); 
+        result.data=newdelete;
+      
+       result.save();
+        res.send(result.data)
+    });
+}
+
+const updateReq = (req, res)=> {
+
+
+    const index=Number(req.params.index)
+  
+  const{companyName,jobTitle, description, email}=req.body;
+  
+  infoModal2.findOne({email:email},(error,result)=>{
+    result.data.splice(index,1,{
+        companyName:companyName,
+        jobTitle:jobTitle,
+        description:description
+  }
+  
+  )
+  result.save();
+  res.send(result.data)
+  })
+  
+  };
+
 module.exports={
-    postReq2, 
+    postReq2, getReq, delReq, updateReq
 }
