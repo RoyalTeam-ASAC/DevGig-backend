@@ -3,20 +3,20 @@
 const mongoose = require('mongoose');
 const freelanceSchema = require('../Models/freelance.model');
 
-const data = new mongoose.Schema({
+const userdata = new mongoose.Schema({
     email:{type:String},
     data:[freelanceSchema]
 })
 
-const infoModal = mongoose.model('data',data);
+const infoModal = mongoose.model('userdata',userdata);
 
 const muntherSeed = ()=>{
     const muntherData={
-        name:'munther',
-        skills: 'javaScript,Css,Html,NoSQL',
-        bio:'Full stack Web developer',
-        phone:'000-000-000',
-        websiteUrl:'https://github.com/muntherabdlrahman'
+        name:'johny deep',
+        skills: 'arting',
+        bio:'charactor',
+        phone:'9999999999000',
+        websiteUrl:'https://en.wikipedia.org/wiki/Johnny_Depp'
     }
     const munther = new infoModal({
         email:'munther.abdlrahman@gmail.com',
@@ -27,4 +27,4 @@ const muntherSeed = ()=>{
     return (munther)
 }
 
-module.exports=infoModal;
+module.exports=infoModal ;

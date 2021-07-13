@@ -1,19 +1,31 @@
 'use strict';
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const axios = require("axios");
-// require mongoose
 const mongoose = require('mongoose');
-
 app.use(express.json());
-
-require('dotenv').config();
 const PORT = process.env.PORT;
 const cors = require('cors');
 app.use(cors());
-
 const jwt = require('jsonwebtoken');
 const jwksClient = require('jwks-rsa');
+
+////////////////////////////////////////
+const findJobs = require('./Conroller/findJobs');
+// const testController=require('./Conroller/test.controller');
+// var MongoClient = require('mongodb').MongoClient
+const{
+    gettingReq,
+    postReq,
+    userDelete,
+    updateFreelance
+
+}=require('./Conroller/freelance.controller')
+//////////////////////////////////////////////////////////////
+
+mongoose.connect('mongodb://localhost:27017/userfreelance',
+
 const userModel = require('./Models/user.model')
 const infoModal2 = require('./Models/seedingJob.model')
 const findJobs = require('./Conroller/findJobs');
@@ -26,9 +38,17 @@ const{updateReq}=require('./Conroller/jobs.controller')
 
 //mongo
 mongoose.connect('mongodb://localhost:27017/jobs',
+
     { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
+
+
+app.get('/userfreelance',gettingReq)
+app.post('/userfreelance',postReq)
+app.delete('/userfreelance/:free_idx',userDelete)
+// app.put('/up-userfreelance/:free_idx', updateFreelance)
+app.put('/userfreelance/:index', updateFreelance)
 
 app.get('/',(req,res)=>{
     res.send('Hello World')
@@ -36,27 +56,25 @@ app.get('/',(req,res)=>{
 app.get('/jobs', getReq)
 app.delete('/jobs/:index', delReq)
 app.put('/jobs/:index', updateReq)
+app.post('/jobs',postReq2)
 
-
-
-//API request
 app.get('/findJobs', findJobs);
 
 
-//Post request
 app.get('/test')
-// app.post('/test',testController)
-// app.get('/freelance',testController)
-// app.get('/freelance',postReq)
-app.post('/freelance',postReq)
-// app.get('/jobs',postReq2)
- app.post('/jobs',postReq2)
+
+ 
+
 
 
 const client = jwksClient({
     // this url comes from your app on the auth0 dashboard 
     jwksUri: `https://dev-rxdxwsv9.eu.auth0.com/.well-known/jwks.json`
 });
+
+
+
+
 
 // this is a ready to use function
 const getKey = (header, callback) => {
