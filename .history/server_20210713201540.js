@@ -29,6 +29,9 @@ mongoose.connect('mongodb://localhost:27017/jobs',
     { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
+mongoose.connect('mongodb://localhost:27017/freelance',
+    { useNewUrlParser: true, useUnifiedTopology: true }
+);
 
 app.get('/',(req,res)=>{
     res.send('Hello World')
@@ -50,7 +53,7 @@ app.get('/test')
 // app.get('/freelance',postReq)
 app.post('/freelance',postReq)
 // app.get('/jobs',postReq2)
-app.post('/jobs',postReq2)
+ app.post('/jobs',postReq2)
 
 
 const client = jwksClient({

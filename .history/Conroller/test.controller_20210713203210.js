@@ -13,4 +13,4 @@ const testControllerJobs = (req, res)=>{
     const userObj=JobSeed();
     res.json(userObj)
 }
-module.exports=testControllerJobs;
+module.exports=;

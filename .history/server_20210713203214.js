@@ -33,7 +33,7 @@ mongoose.connect('mongodb://localhost:27017/jobs',
 app.get('/',(req,res)=>{
     res.send('Hello World')
 })
-app.get('/jobs', getReq)
+app.get('/jobs', testControllerJobs)
 app.delete('/jobs/:index', delReq)
 app.put('/jobs/:index', updateReq)
 
