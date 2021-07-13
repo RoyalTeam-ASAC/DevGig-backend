@@ -10,6 +10,7 @@ const cors = require('cors');
 app.use(cors());
 const jwt = require('jsonwebtoken');
 const jwksClient = require('jwks-rsa');
+
 ////////////////////////////////////////
 const findJobs = require('./Conroller/findJobs');
 // const testController=require('./Conroller/test.controller');
@@ -22,13 +23,25 @@ const{
 
 }=require('./Conroller/freelance.controller')
 //////////////////////////////////////////////////////////////
-app.get('/',(req,res)=>{
-    res.send('Hello World')
-})
 
 mongoose.connect('mongodb://localhost:27017/userfreelance',
+
+const userModel = require('./Models/user.model')
+const infoModal2 = require('./Models/seedingJob.model')
+const findJobs = require('./Conroller/findJobs');
+const testControllerJobs=require('./Conroller/test.controller');
+const{postReq}=require('./Conroller/freelance.controller')
+const{postReq2}=require('./Conroller/jobs.controller')
+const{getReq}=require('./Conroller/jobs.controller')
+const{delReq}=require('./Conroller/jobs.controller')
+const{updateReq}=require('./Conroller/jobs.controller')
+
+//mongo
+mongoose.connect('mongodb://localhost:27017/jobs',
+
     { useNewUrlParser: true, useUnifiedTopology: true }
 );
+
 
 
 app.get('/userfreelance',gettingReq)
@@ -37,34 +50,20 @@ app.delete('/userfreelance/:free_idx',userDelete)
 // app.put('/up-userfreelance/:free_idx', updateFreelance)
 app.put('/userfreelance/:index', updateFreelance)
 
+app.get('/',(req,res)=>{
+    res.send('Hello World')
+})
+app.get('/jobs', getReq)
+app.delete('/jobs/:index', delReq)
+app.put('/jobs/:index', updateReq)
+app.post('/jobs',postReq2)
 
-
-//API request
 app.get('/findJobs', findJobs);
 
-//Post request
-// app.get('/Notifies',testController)
-// app.post('/test',testController)
-// app.get('/freelance',getting)
 
+app.get('/test')
 
-// app.get('/Notifies', function (req, res) {
-//     // BAD! Creates a new connection pool for every request
-//     console.log('connected');
-//     mongoose.connect('mongodb://127.0.0.1:27017/freelance', function (err, db) {
-//     if (err) throw err;
-//     var coll = db.collection('datas');
-//     coll.find({}).toArray(function (err, result) {
-//         if (err) {
-//             res.send(err);
-//         } else {
-//             res.send(JSON.stringify(result));
-//         }
-//     })
-// });
-   
-        
-// });
+ 
 
 
 
@@ -96,6 +95,7 @@ app.get('/authorize', (req, res) => {
     })
     res.send(token);
 });
+
 
 app.listen(PORT, () => {
     console.log(`listening to port: ${PORT}`);
