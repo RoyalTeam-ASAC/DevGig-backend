@@ -12,54 +12,59 @@ const jwt = require('jsonwebtoken');
 const jwksClient = require('jwks-rsa');
 ////////////////////////////////////////
 const findJobs = require('./Conroller/findJobs');
-const testController=require('./Conroller/test.controller');
-var MongoClient = require('mongodb').MongoClient
+// const testController=require('./Conroller/test.controller');
+// var MongoClient = require('mongodb').MongoClient
 const{
-    getting,
+    gettingReq,
     postReq,
-    // userDelete,
+    userDelete,
+    updateFreelance
 
 }=require('./Conroller/freelance.controller')
-
-//mongo
-// mongoose.connect('mongodb://localhost:27017/freelance',
-//     { useNewUrlParser: true, useUnifiedTopology: true }
-// );
-
-
+//////////////////////////////////////////////////////////////
 app.get('/',(req,res)=>{
     res.send('Hello World')
 })
+
+mongoose.connect('mongodb://localhost:27017/userfreelance',
+    { useNewUrlParser: true, useUnifiedTopology: true }
+);
+
+
+app.get('/userfreelance',gettingReq)
+app.post('/userfreelance',postReq)
+app.delete('/userfreelance/:free_idx',userDelete)
+// app.put('/up-userfreelance/:free_idx', updateFreelance)
+app.put('/userfreelance/:index', updateFreelance)
+
+
 
 //API request
 app.get('/findJobs', findJobs);
 
 //Post request
-app.get('/Notifies',testController)
+// app.get('/Notifies',testController)
 // app.post('/test',testController)
-// app.get('/freelance',testController)
 // app.get('/freelance',getting)
-app.post('/freelance',postReq)
-// app.delete('/freelance/:free_idx',userDelete)
 
 
-app.get('/Notifies', function (req, res) {
-    // BAD! Creates a new connection pool for every request
-    console.log('connected');
-    mongoose.connect('mongodb://127.0.0.1:27017/freelance', function (err, db) {
-    if (err) throw err;
-    var coll = db.collection('datas');
-    coll.find({}).toArray(function (err, result) {
-        if (err) {
-            res.send(err);
-        } else {
-            res.send(JSON.stringify(result));
-        }
-    })
-});
+// app.get('/Notifies', function (req, res) {
+//     // BAD! Creates a new connection pool for every request
+//     console.log('connected');
+//     mongoose.connect('mongodb://127.0.0.1:27017/freelance', function (err, db) {
+//     if (err) throw err;
+//     var coll = db.collection('datas');
+//     coll.find({}).toArray(function (err, result) {
+//         if (err) {
+//             res.send(err);
+//         } else {
+//             res.send(JSON.stringify(result));
+//         }
+//     })
+// });
    
         
-});
+// });
 
 
 
