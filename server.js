@@ -14,15 +14,18 @@ app.use(cors());
 
 const jwt = require('jsonwebtoken');
 const jwksClient = require('jwks-rsa');
-
+const userModel = require('./Models/user.model')
+const infoModal2 = require('./Models/seedingJob.model')
 const findJobs = require('./Conroller/findJobs');
-const testController=require('./Conroller/test.controller');
-const{
-    postReq
-}=require('./Conroller/freelance.controller')
+const testControllerJobs=require('./Conroller/test.controller');
+const{postReq}=require('./Conroller/freelance.controller')
+const{postReq2}=require('./Conroller/jobs.controller')
+const{getReq}=require('./Conroller/jobs.controller')
+const{delReq}=require('./Conroller/jobs.controller')
+const{updateReq}=require('./Conroller/jobs.controller')
 
 //mongo
-mongoose.connect('mongodb://localhost:27017/freelance',
+mongoose.connect('mongodb://localhost:27017/jobs',
     { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
@@ -30,16 +33,25 @@ mongoose.connect('mongodb://localhost:27017/freelance',
 app.get('/',(req,res)=>{
     res.send('Hello World')
 })
+app.get('/jobs', getReq)
+app.delete('/jobs/:index', delReq)
+app.put('/jobs/:index', updateReq)
+
+
 
 //API request
 app.get('/findJobs', findJobs);
 
+
 //Post request
-app.get('/test',testController)
+app.get('/test')
 // app.post('/test',testController)
 // app.get('/freelance',testController)
 // app.get('/freelance',postReq)
 app.post('/freelance',postReq)
+// app.get('/jobs',postReq2)
+ app.post('/jobs',postReq2)
+
 
 const client = jwksClient({
     // this url comes from your app on the auth0 dashboard 
@@ -65,6 +77,7 @@ app.get('/authorize', (req, res) => {
     })
     res.send(token);
 });
+
 
 app.listen(PORT, () => {
     console.log(`listening to port: ${PORT}`);
