@@ -141,5 +141,6 @@ module.exports = {
     gettingReq,
     postReq,
     userDelete,
-    updateFreelance,
+    updateFreelance
+
 }
