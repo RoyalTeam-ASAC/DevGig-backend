@@ -11,7 +11,7 @@ app.use(cors());
 const jwt = require('jsonwebtoken');
 const jwksClient = require('jwks-rsa');
 const findJobs = require('./Conroller/findJobs');
-const testControllerJobs=require('./Conroller/test.controller');
+// const testControllerJobs=require('./Conroller/test.controller');
 // const{postReq}=require('./Conroller/freelance.controller')
 const{postReq2}=require('./Conroller/jobs.controller')
 const{getReq}=require('./Conroller/jobs.controller')
@@ -28,12 +28,11 @@ const{
     updateFreelance
 }=require('./Conroller/freelance.controller')
 //////////////////////////////////////////////////////////////
-mongoose.connect('mongodb+srv://devgig:1234@cluster0.f64np.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+mongoose.connect('mongodb://localhost:27017/finaldb',
 { useNewUrlParser: true, useUnifiedTopology: true }
 );
 const userModel = require('./Models/user.model')
-const infoModal2 = require('./Models/seedingJob.model');
-// app.get('/jobs',testControllerJobs)
+const infoModal2 = require('./Models/seedingJob.model')
 app.get('/userfreelance',gettingReq)
 app.post('/userfreelance',postReq)
 app.delete('/userfreelance/:free_idx',userDelete)

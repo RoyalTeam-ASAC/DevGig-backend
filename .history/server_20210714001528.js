@@ -10,15 +10,9 @@ const cors = require('cors');
 app.use(cors());
 const jwt = require('jsonwebtoken');
 const jwksClient = require('jwks-rsa');
-const findJobs = require('./Conroller/findJobs');
-const testControllerJobs=require('./Conroller/test.controller');
-// const{postReq}=require('./Conroller/freelance.controller')
-const{postReq2}=require('./Conroller/jobs.controller')
-const{getReq}=require('./Conroller/jobs.controller')
-const{delReq}=require('./Conroller/jobs.controller')
-const{updateReq}=require('./Conroller/jobs.controller')
+
 ////////////////////////////////////////
-// const findJobs = require('./Conroller/findJobs');
+const findJobs = require('./Conroller/findJobs');
 // const testController=require('./Conroller/test.controller');
 // var MongoClient = require('mongodb').MongoClient
 const{
@@ -26,18 +20,37 @@ const{
     postReq,
     userDelete,
     updateFreelance
+
 }=require('./Conroller/freelance.controller')
 //////////////////////////////////////////////////////////////
-mongoose.connect('mongodb+srv://devgig:1234@cluster0.f64np.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+
+const munther = mongoose.createConnection('mongodb://localhost:27017/userfreelance',
 { useNewUrlParser: true, useUnifiedTopology: true }
 );
-const userModel = require('./Models/user.model')
+
+const userModel = require('./Models/user.model');
 const infoModal2 = require('./Models/seedingJob.model');
-// app.get('/jobs',testControllerJobs)
+const testControllerJobs=require('./Conroller/test.controller');
+const{postReq2}=require('./Conroller/jobs.controller')
+const{getReq}=require('./Conroller/jobs.controller')
+const{delReq}=require('./Conroller/jobs.controller')
+const{updateReq}=require('./Conroller/jobs.controller');
+
+
+//mongo
+const yazan = mongoose.connect('mongodb://localhost:27018/jobs',
+    { useNewUrlParser: true, useUnifiedTopology: true }
+);
+
+
+
+app.get('/userfreelance',testControllerJobs)
 app.get('/userfreelance',gettingReq)
 app.post('/userfreelance',postReq)
 app.delete('/userfreelance/:free_idx',userDelete)
+// app.put('/up-userfreelance/:free_idx', updateFreelance)
 app.put('/userfreelance/:index', updateFreelance)
+
 app.get('/',(req,res)=>{
     res.send('Hello World')
 })
@@ -45,18 +58,34 @@ app.get('/jobs', getReq)
 app.delete('/jobs/:index', delReq)
 app.put('/jobs/:index', updateReq)
 app.post('/jobs',postReq2)
+
 app.get('/findJobs', findJobs);
+
+
 app.get('/test')
+
+ 
+
+
+
 const client = jwksClient({
     // this url comes from your app on the auth0 dashboard 
     jwksUri: `https://dev-rxdxwsv9.eu.auth0.com/.well-known/jwks.json`
 });
+
+
+
+
+
+// this is a ready to use function
 const getKey = (header, callback) => {
     client.getSigningKey(header.kid, function (err, key) {
         const signingKey = key.publicKey || key.rsaPublicKey;
         callback(null, signingKey);
     });
 }
+
+// 'Bearer ;alsdkj;laskd;lkasd;lkl'
 app.get('/authorize', (req, res) => {
     const token = req.headers.authorization.split(' ')[1];
     jwt.verify(token, getKey, {}, (err, user) => {
@@ -67,6 +96,9 @@ app.get('/authorize', (req, res) => {
     })
     res.send(token);
 });
+
+
 app.listen(PORT, () => {
     console.log(`listening to port: ${PORT}`);
 })
+//

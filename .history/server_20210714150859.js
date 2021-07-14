@@ -28,7 +28,7 @@ const{
     updateFreelance
 }=require('./Conroller/freelance.controller')
 //////////////////////////////////////////////////////////////
-mongoose.connect('mongodb+srv://devgig:1234@cluster0.f64np.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+mongoose.connect('mongodb://localhost:27017/finaldb',
 { useNewUrlParser: true, useUnifiedTopology: true }
 );
 const userModel = require('./Models/user.model')
