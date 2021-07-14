@@ -44,10 +44,10 @@ const razanSeed = ()=>{
 }
 const yazanSeed = ()=>{
     const yazanData={
-        name:'yazan',
-        skills: 'java',
-        bio:'java',
-        phone:'111111111111111111',
+        name:'johny deep',
+        skills: 'arting',
+        bio:'charactor',
+        phone:'9999999999000',
         websiteUrl:'https://en.wikipedia.org/wiki/Johnny_Depp'
     }
     const yazan = new infoModal({
@@ -60,10 +60,10 @@ const yazanSeed = ()=>{
 }
 const eradaSeed = ()=>{
     const eradaData={
-        name:'erada',
-        skills: 'python',
-        bio:'python',
-        phone:'4444444444444',
+        name:'johny deep',
+        skills: 'arting',
+        bio:'charactor',
+        phone:'9999999999000',
         websiteUrl:'https://en.wikipedia.org/wiki/Johnny_Depp'
     }
     const erada = new infoModal({
@@ -75,4 +75,9 @@ const eradaSeed = ()=>{
     return (erada)
 }
 
-module.exports=infoModal
+module.exports={infoModal,
+    muntherSeed,
+    razanSeed,
+    yazanSeed,
+    eradaSeed
+ }

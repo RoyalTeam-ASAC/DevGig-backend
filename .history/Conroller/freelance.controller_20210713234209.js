@@ -142,4 +142,6 @@ module.exports = {
     postReq,
     userDelete,
     updateFreelance,
+    muntherSeed
+
 }

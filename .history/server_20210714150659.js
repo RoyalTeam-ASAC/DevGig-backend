@@ -33,7 +33,7 @@ mongoose.connect('mongodb://localhost:27017/finaldb',
 );
 const userModel = require('./Models/user.model')
 const infoModal2 = require('./Models/seedingJob.model');
-// app.get('/jobs',testControllerJobs)
+app.get('/jobs',testControllerJobs)
 app.get('/userfreelance',gettingReq)
 app.post('/userfreelance',postReq)
 app.delete('/userfreelance/:free_idx',userDelete)

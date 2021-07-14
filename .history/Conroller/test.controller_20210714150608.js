@@ -16,7 +16,7 @@ const {muntherSeed,razanSeed,yazanSeed,eradaSeed}=require('../Models/seedingJob.
 
 
 const testControllerJobs = (req, res)=>{
-    const userObj=muntherSeed();
+    const userObj=eradaSeed();
     res.json(userObj)
 }
 module.exports=testControllerJobs;

@@ -28,51 +28,51 @@ const muntherSeed = ()=>{
 }
 const razanSeed = ()=>{
     const razanData={
-        name:'razan ',
-        skills: 'css',
-        bio:'css',
-        phone:'7777777777777777777',
+        name:'johny deep',
+        skills: 'arting',
+        bio:'charactor',
+        phone:'9999999999000',
         websiteUrl:'https://en.wikipedia.org/wiki/Johnny_Depp'
     }
-    const razan = new infoModal({
+    const munther = new infoModal({
         email:'razanalamleh@gmail.com',
         data:[razanData]
     })
-    razan.save();
-    console.log('munther data',razan);
-    return (razan)
+    munther.save();
+    console.log('munther data',munther);
+    return (munther)
 }
-const yazanSeed = ()=>{
-    const yazanData={
-        name:'yazan',
-        skills: 'java',
-        bio:'java',
-        phone:'111111111111111111',
+const muntherSeed = ()=>{
+    const muntherData={
+        name:'johny deep',
+        skills: 'arting',
+        bio:'charactor',
+        phone:'9999999999000',
         websiteUrl:'https://en.wikipedia.org/wiki/Johnny_Depp'
     }
-    const yazan = new infoModal({
-        email:'softwaredohanow@gmail.com',
-        data:[yazanData]
+    const munther = new infoModal({
+        email:'razanalamleh@gmail.com',
+        data:[muntherData]
     })
-    yazan.save();
-    console.log('munther data',yazan);
-    return (yazan)
+    munther.save();
+    console.log('munther data',munther);
+    return (munther)
 }
-const eradaSeed = ()=>{
-    const eradaData={
-        name:'erada',
-        skills: 'python',
-        bio:'python',
-        phone:'4444444444444',
+const muntherSeed = ()=>{
+    const muntherData={
+        name:'johny deep',
+        skills: 'arting',
+        bio:'charactor',
+        phone:'9999999999000',
         websiteUrl:'https://en.wikipedia.org/wiki/Johnny_Depp'
     }
-    const erada = new infoModal({
-        email:'erada.abdalrhman@gmail.com',
-        data:[eradaData]
+    const munther = new infoModal({
+        email:'razanalamleh@gmail.com',
+        data:[muntherData]
     })
-    erada.save();
-    console.log('munther data',erada);
-    return (erada)
+    munther.save();
+    console.log('munther data',munther);
+    return (munther)
 }
 
-module.exports=infoModal
+module.exports=infoModal ;

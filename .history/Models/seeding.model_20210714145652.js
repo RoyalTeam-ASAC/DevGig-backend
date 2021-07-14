@@ -38,41 +38,44 @@ const razanSeed = ()=>{
         email:'razanalamleh@gmail.com',
         data:[razanData]
     })
-    razan.save();
+    munther.save();
     console.log('munther data',razan);
     return (razan)
 }
 const yazanSeed = ()=>{
     const yazanData={
-        name:'yazan',
-        skills: 'java',
-        bio:'java',
-        phone:'111111111111111111',
+        name:'johny deep',
+        skills: 'arting',
+        bio:'charactor',
+        phone:'9999999999000',
         websiteUrl:'https://en.wikipedia.org/wiki/Johnny_Depp'
     }
     const yazan = new infoModal({
-        email:'softwaredohanow@gmail.com',
-        data:[yazanData]
+        email:'razanalamleh@gmail.com',
+        data:[muntherData]
     })
-    yazan.save();
+    munther.save();
     console.log('munther data',yazan);
     return (yazan)
 }
-const eradaSeed = ()=>{
-    const eradaData={
-        name:'erada',
-        skills: 'python',
-        bio:'python',
-        phone:'4444444444444',
+const muntherSeed = ()=>{
+    const muntherData={
+        name:'johny deep',
+        skills: 'arting',
+        bio:'charactor',
+        phone:'9999999999000',
         websiteUrl:'https://en.wikipedia.org/wiki/Johnny_Depp'
     }
-    const erada = new infoModal({
-        email:'erada.abdalrhman@gmail.com',
-        data:[eradaData]
+    const munther = new infoModal({
+        email:'razanalamleh@gmail.com',
+        data:[muntherData]
     })
-    erada.save();
-    console.log('munther data',erada);
-    return (erada)
+    munther.save();
+    console.log('munther data',munther);
+    return (munther)
 }
 
-module.exports=infoModal
+module.exports={infoModal,
+    muntherSeed,
+    razanSeed,
+ }

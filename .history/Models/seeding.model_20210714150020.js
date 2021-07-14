@@ -75,4 +75,9 @@ const eradaSeed = ()=>{
     return (erada)
 }
 
-module.exports=infoModal
+module.exports={infoModal,
+    muntherSeed,
+    razanSeed,
+    yazanSeed,
+    eradaSeed
+ }

@@ -2,10 +2,7 @@
 
 // const muntherSeed=require('../Models/seeding.model');
 const JobSeed=require('../Models/seedingJob.model');
-// const {muntherSeed,razanSeed,yazanSeed,eradaSeed}=require('../Models/seeding.model')
-const {muntherSeed,razanSeed,yazanSeed,eradaSeed}=require('../Models/seedingJob.model')
-
-
+const muntherSeed=require('../Models/seeding.model')
 
 
 // const testController = (req,res)=>{
@@ -16,7 +13,7 @@ const {muntherSeed,razanSeed,yazanSeed,eradaSeed}=require('../Models/seedingJob.
 
 
 const testControllerJobs = (req, res)=>{
-    const userObj=muntherSeed();
+    const userObj=JobSeed();
     res.json(userObj)
 }
 module.exports=testControllerJobs;
