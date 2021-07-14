@@ -76,7 +76,3 @@ const eradaSeed = ()=>{
 }
 
 module.exports=infoModal
-// yazanSeed();
-// eradaSeed();
-// razanSeed();
-// muntherSeed();

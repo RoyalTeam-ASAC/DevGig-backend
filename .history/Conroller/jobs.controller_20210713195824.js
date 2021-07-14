@@ -10,8 +10,10 @@ const getReq= (req,res) =>{
         if (error){
             res.send(error.message)
         }
-        // console.log(result.data)
+        console.log(result.data)
         res.send(result.data);
+
+     
     });
     
   }

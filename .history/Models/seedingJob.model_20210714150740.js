@@ -1,15 +1,29 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const freelanceSchema = require('../Models/freelance.model');
+const jobsSchema = require('../Models/jobs.model');
 
-const userdata = new mongoose.Schema({
+const jobsData = new mongoose.Schema({
     email:{type:String},
-    data:[freelanceSchema]
+    data:[jobsSchema]
 })
 
-const infoModal = mongoose.model('user',userdata);
+const infoModal2 = mongoose.model('job',jobsData);
 
+// const JobSeed = ()=>{
+//     const muntherData={
+//         companyName:'Amazon',
+//         jobTitle: 'javaScript,Css,Html,NoSQL',
+//         description:'Full stack Web developer',
+//     }
+//     const munther = new infoModal2({
+//         email:'razanalamleh@gmail.com',
+//         data:[muntherData]
+//     })
+//     munther.save();
+//     console.log('munther data',munther);
+//     return (munther)
+// }
 const muntherSeed = ()=>{
     const muntherData={
         name:'johny deep',
@@ -18,7 +32,7 @@ const muntherSeed = ()=>{
         phone:'9999999999000',
         websiteUrl:'https://en.wikipedia.org/wiki/Johnny_Depp'
     }
-    const munther = new infoModal({
+    const munther = new infoModal2({
         email:'munther.abdlrahman@gmail.com',
         data:[muntherData]
     })
@@ -34,7 +48,7 @@ const razanSeed = ()=>{
         phone:'7777777777777777777',
         websiteUrl:'https://en.wikipedia.org/wiki/Johnny_Depp'
     }
-    const razan = new infoModal({
+    const razan = new infoModal2({
         email:'razanalamleh@gmail.com',
         data:[razanData]
     })
@@ -50,7 +64,7 @@ const yazanSeed = ()=>{
         phone:'111111111111111111',
         websiteUrl:'https://en.wikipedia.org/wiki/Johnny_Depp'
     }
-    const yazan = new infoModal({
+    const yazan = new infoModal2({
         email:'softwaredohanow@gmail.com',
         data:[yazanData]
     })
@@ -66,7 +80,7 @@ const eradaSeed = ()=>{
         phone:'4444444444444',
         websiteUrl:'https://en.wikipedia.org/wiki/Johnny_Depp'
     }
-    const erada = new infoModal({
+    const erada = new infoModal2({
         email:'erada.abdalrhman@gmail.com',
         data:[eradaData]
     })
@@ -74,9 +88,10 @@ const eradaSeed = ()=>{
     console.log('munther data',erada);
     return (erada)
 }
-
-module.exports=infoModal
-// yazanSeed();
-// eradaSeed();
-// razanSeed();
-// muntherSeed();
+module.exports={
+    infoModal2,
+    muntherSeed,
+    razanSeed,
+    yazanSeed,
+    eradaSeed
+}

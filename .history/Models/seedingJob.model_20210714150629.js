@@ -1,15 +1,29 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const freelanceSchema = require('../Models/freelance.model');
+const jobsSchema = require('../Models/jobs.model');
 
-const userdata = new mongoose.Schema({
+const jobsData = new mongoose.Schema({
     email:{type:String},
-    data:[freelanceSchema]
+    data:[jobsSchema]
 })
 
-const infoModal = mongoose.model('user',userdata);
+const infoModal2 = mongoose.model('job',jobsData);
 
+// const JobSeed = ()=>{
+//     const muntherData={
+//         companyName:'Amazon',
+//         jobTitle: 'javaScript,Css,Html,NoSQL',
+//         description:'Full stack Web developer',
+//     }
+//     const munther = new infoModal2({
+//         email:'razanalamleh@gmail.com',
+//         data:[muntherData]
+//     })
+//     munther.save();
+//     console.log('munther data',munther);
+//     return (munther)
+// }
 const muntherSeed = ()=>{
     const muntherData={
         name:'johny deep',
@@ -74,9 +88,10 @@ const eradaSeed = ()=>{
     console.log('munther data',erada);
     return (erada)
 }
-
-module.exports=infoModal
-// yazanSeed();
-// eradaSeed();
-// razanSeed();
-// muntherSeed();
+module.exports={
+    infoModal2,
+    muntherSeed,
+    razanSeed,
+    yazanSeed,
+    eradaSeed
+}

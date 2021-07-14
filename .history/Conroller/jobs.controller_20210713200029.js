@@ -12,6 +12,8 @@ const getReq= (req,res) =>{
         }
         // console.log(result.data)
         res.send(result.data);
+
+     
     });
     
   }

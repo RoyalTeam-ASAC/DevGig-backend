@@ -1,7 +1,7 @@
 'use strict';
 
 const jobsSchema=require ('../Models/jobs.model');
-const infoModal2= require('../Models/seedingJob.model');
+// const infoModal2= require('../Models/seedingJob.model');
 
 const getReq= (req,res) =>{
     const email=req.query.email
@@ -12,6 +12,8 @@ const getReq= (req,res) =>{
         }
         // console.log(result.data)
         res.send(result.data);
+
+     
     });
     
   }
